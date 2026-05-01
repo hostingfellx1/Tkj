@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKJ Community | Priority Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        /* Animasi Modal */
+        .modal { 
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modal.active { 
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform: scale(0.85) translateY(20px);
+        }
+        .modal.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        /* Desain Background Profil per Member */
+        .theme-red { background-color: #1a0505; border-color: #3d0a0a; } 
+        .theme-blue { background-color: #050a1a; border-color: #0a143d; }
+        .theme-emerald { background-color: #051a10; border-color: #0a3d25; }
+        .theme-purple { background-color: #11051a; border-color: #270a3d; }
+        .theme-gray { background-color: #111111; border-color: #222222; }
+
+        .member-row:active { background-color: rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <nav class="fixed w-full z-50 bg-black/90 border-b border-white/10 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold tracking-tighter">TKJ<span class="text-gray-500">PRO.</span></a>
+            <div class="flex items-center space-x-8">
+                <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                    <a href="#about" class="hover:text-gray-400 transition">Tentang</a>
+                    <a href="#gallery" class="hover:text-gray-400 transition">Galeri</a>
+                    <a href="#members" class="hover:text-gray-400 transition">Member</a>
+                    <a href="#faq" class="hover:text-gray-400 transition">FAQ</a>
+                </div>
+                <a href="https://www.instagram.com/class_tkj_pni212?igsh=MXBuZG9xdzIwaWptYw==" target="_blank" class="text-xl hover:text-pink-500 transition">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="h-[80vh] flex items-center justify-center text-center px-6">
+        <div>
+            <span class="text-gray-500 tracking-[0.5em] text-sm mb-4 block uppercase font-light">Exclusive Community</span>
+            <h1 class="text-6xl md:text-8xl font-black mb-4 uppercase italic">PRIORITY.</h1>
+            <p class="text-gray-400 max-w-xl mx-auto text-lg mb-8">Platform khusus untuk koordinasi dan manajemen internal member TKJ.</p>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 bg-white text-black">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <h2 class="text-4xl font-black uppercase mb-8">Visi & Prioritas</h2>
+            <p class="text-xl leading-relaxed font-light italic text-gray-700">"Website ini dibangun sebagai prioritas utama dalam pendataan, koordinasi, dan dokumentasi resmi seluruh anggota."</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-black">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black uppercase mb-16">Galeri Praktikum</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="border border-white/10 group">
+                    <img src="https://i.imgur.com/EFmUl9h.jpeg" class="w-full h-80 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    <div class="p-6 text-left">
+                        <h4 class="font-bold uppercase tracking-widest text-sm">computer assembly</h4>
+                        <p class="text-xs text-gray-500 mt-2 italic">Proses perakitan hardware.</p>
+                    </div>
+                </div>
+                <div class="border border-white/10 group">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600" class="w-full h-80 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    <div class="p-6 text-left">
+                        <h4 class="font-bold uppercase tracking-widest text-sm">System Configuration</h4>
+                        <p class="text-xs text-gray-500 mt-2 italic">Konfigurasi jaringan sistem.</p>
+                    </div>
+                </div>
+                <div class="border border-white/10 group">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600" class="w-full h-80 object-cover grayscale hover:grayscale-0 transition duration-500">
+                    <div class="p-6 text-left">
+                        <h4 class="font-bold uppercase tracking-widest text-sm">Collaborative Work</h4>
+                        <p class="text-xs text-gray-500 mt-2 italic">Kerjasama tim teknis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="members" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-black uppercase mb-4 tracking-tighter">Member Directory</h2>
+            <p class="text-gray-500 text-xs uppercase tracking-[0.3em] mb-12 italic animate-pulse">Klik pada baris nama untuk melihat profil lengkap</p>
+            
+            <div class="overflow-x-auto max-w-4xl mx-auto border border-white/5 mb-20 text-left">
+                <table class="w-full text-left border-collapse">
+                    <tbody class="text-sm">
+                        <tr onclick="openProfile('SAEPUL BAHRI', '17 Tahun', '28 okt 2008', 'Network Engineer', 'gamer sejati.', 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800', 'theme-blue')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer group">
+                            <td class="py-5 px-8 font-medium uppercase text-white group-hover:pl-10 transition-all">SAEPUL BAHRI</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+                        
+                        <tr onclick="openProfile('ADRIAN MAULANA', '17 Tahun', '20 mei 2007', 'System Admin', 'mekanik tua.', 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800', 'theme-emerald')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer group">
+                            <td class="py-5 px-8 font-medium uppercase text-white group-hover:pl-10 transition-all">ADRIAN MAULANA</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+                        
+                        <tr onclick="openProfile('RIZAL SUKIDI', '17 Tahun', '26 sep 2007', 'Hardware Specialist', 'Spesialis perakitan PC High-End.', 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800', 'theme-purple')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer group">
+                            <td class="py-5 px-8 font-medium uppercase text-white group-hover:pl-10 transition-all">RIZAL SUKIDI</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+                        
+                        <tr onclick="openProfile('MUHAMAD AKBAR RAMDANI', '17 Tahun', '13 Sep 2008', 'Web Developer', 'Cars people.', 'https://i.imgur.com/5s57zda.jpeg', 'theme-red')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer font-bold group">
+                            <td class="py-5 px-8 font-medium uppercase text-white tracking-wider group-hover:pl-10 transition-all">MUHAMAD AKBAR RAMDANI</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+                        
+                        <tr onclick="openProfile('ARYA RAMADAN', '17 Tahun', '15 Jun 2009', 'Cyber Security', 'motorcycle group.', 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800', 'theme-gray')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer group">
+                            <td class="py-5 px-8 font-medium uppercase text-white group-hover:pl-10 transition-all">ARYA RAMADAN</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+
+                        <tr onclick="openProfile('NANDANG RAMDANI', '17 Tahun', '26 sep 2007', 'Data Analyst', 'Pengolahan data internal komunitas.', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800', 'theme-gray')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer group">
+                            <td class="py-5 px-8 font-medium uppercase text-white group-hover:pl-10 transition-all">NANDANG RAMDANI</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+                        
+                        <tr onclick="openProfile('KOMARUDIN', '17 Tahun', '31 jan 2008', 'IT Support', 'pekerja keras.', 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800', 'theme-emerald')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer group">
+                            <td class="py-5 px-8 font-medium uppercase text-white group-hover:pl-10 transition-all">KOMARUDIN</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+                        
+                        <tr onclick="openProfile('SASKIA MUTIA', '17 Tahun', '28 sep 2007', 'UI Designer', 'Perancang estetika visual platform.', 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800', 'theme-purple')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer group">
+                            <td class="py-5 px-8 font-medium uppercase text-white group-hover:pl-10 transition-all">SASKIA MUTIA</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+                        
+                        <tr onclick="openProfile('FITRIYANI', '17 Tahun', '19 sep 2008', 'Frontend Dev', 'Implementasi desain ke kode fungsional.', 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800', 'theme-emerald')" class="member-row border-b border-white/5 hover:bg-white/5 transition cursor-pointer group">
+                            <td class="py-5 px-8 font-medium uppercase text-white group-hover:pl-10 transition-all">FITRIYANI</td>
+                            <td class="text-right px-8 text-gray-600 text-xs tracking-widest italic uppercase">MEMBER <i class="fa-solid fa-chevron-right ml-2 opacity-0 group-hover:opacity-100 transition"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-2xl font-bold uppercase mb-8 text-center text-gray-500 tracking-[0.3em]">Member Spotlight</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="aspect-video bg-zinc-900 border border-white/10 overflow-hidden group">
+                        <img src="https://i.imgur.com/wLM4MFG.jpeg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                        <p class="text-[10px] p-3 text-center text-gray-500 uppercase tracking-widest">Group Photo 01 - TKJ Member</p>
+                    </div>
+                    <div class="aspect-video bg-zinc-900 border border-white/10 overflow-hidden group">
+                        <img src="https://i.imgur.com/LygpugD.jpeg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                        <p class="text-[10px] p-3 text-center text-gray-500 uppercase tracking-widest">Group Photo 02 - TKJ Member</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="profileModal" class="modal fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm">
+        <div id="modalContainer" class="modal-content border max-w-2xl w-full p-10 relative shadow-2xl">
+            <button onclick="closeProfile()" class="absolute top-4 right-6 text-white/50 hover:text-white text-3xl font-light">&times;</button>
+            <div class="grid md:grid-cols-2 gap-10 text-left">
+                <div class="flex flex-col justify-center">
+                    <h2 id="m-name" class="text-3xl font-black uppercase italic mb-6 leading-none tracking-tighter text-white"></h2>
+                    <div class="space-y-4 text-sm text-gray-300">
+                        <div class="opacity-40 uppercase text-[10px] tracking-[0.3em] border-b border-white/10 pb-1">Data Spesifikasi</div>
+                        <p class="flex justify-between font-mono"><span>UMUR:</span> <span id="m-age" class="text-white"></span></p>
+                        <p class="flex justify-between font-mono"><span>LAHIR:</span> <span id="m-birth" class="text-white"></span></p>
+                        <p class="flex justify-between font-mono"><span>ROLE:</span> <span id="m-job" class="text-white font-bold italic underline decoration-white/20"></span></p>
+                        <div class="pt-6">
+                            <div class="opacity-40 uppercase text-[10px] tracking-[0.3em] mb-2 text-gray-500">About me</div>
+                            <p id="m-fav" class="text-white/90 italic text-base font-light leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="aspect-[3/4] bg-black/40 border border-white/10 overflow-hidden rounded-sm relative group">
+                    <img id="m-img" src="" class="w-full h-full object-cover grayscale opacity-80 transition duration-1000 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="faq" class="py-24 bg-white text-black">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-4xl font-black uppercase mb-12 text-center">Priority FAQ</h2>
+            <div class="space-y-8">
+                <div class="border-l-4 border-black pl-6">
+                    <h4 class="font-bold text-xl uppercase mb-2">Apa tujuan utama website ini?</h4>
+                    <p class="text-gray-600">Sistem informasi internal untuk koordinasi member dan dokumentasi kegiatan teknis.</p>
+                </div>
+                <div class="border-l-4 border-black pl-6">
+                    <h4 class="font-bold text-xl uppercase mb-2">Bagaimana cara memperbarui data profil?</h4>
+                    <p class="text-gray-600">Silahkan hubungi admin sistem (Web Developer) dengan melampirkan data terbaru dan foto profil.</p>
+                </div>
+                <div class="border-l-4 border-black pl-6">
+                    <h4 class="font-bold text-xl uppercase mb-2">Apakah website ini terbuka untuk umum?</h4>
+                    <p class="text-gray-600">Website ini bersifat publik sebagai profil komunitas, namun data sensitif hanya dapat diakses secara internal.</p>
+                </div>
+                <div class="border-l-4 border-black pl-6">
+                    <h4 class="font-bold text-xl uppercase mb-2">Dimana jadwal praktikum bisa dilihat?</h4>
+                    <p class="text-gray-600">Jadwal praktikum diupdate secara berkala melalui grup koordinasi internal dan dashboard khusus member.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-black text-center text-gray-700 border-t border-white/5">
+        <div class="mb-6">
+            <a href="https://www.instagram.com/class_tkj_pni212?igsh=MXBuZG9xdzIwaWptYw==" target="_blank" class="text-2xl hover:text-white transition inline-block">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        <p class="text-[10px] tracking-[0.5em] uppercase">&copy; 2024 TKJ PRIORITY NETWORK. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        function openProfile(name, age, birth, job, fav, img, theme) {
+            const container = document.getElementById('modalContainer');
+            container.className = 'modal-content border max-w-2xl w-full p-10 relative shadow-2xl ' + theme;
+
+            document.getElementById('m-name').innerText = name;
+            document.getElementById('m-age').innerText = age;
+            document.getElementById('m-birth').innerText = birth;
+            document.getElementById('m-job').innerText = job;
+            document.getElementById('m-fav').innerText = fav;
+            document.getElementById('m-img').src = img;
+            
+            document.getElementById('profileModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProfile() {
+            document.getElementById('profileModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('profileModal')) closeProfile();
+        }
+    </script>
+</body>
+      </html>
